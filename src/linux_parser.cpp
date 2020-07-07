@@ -167,7 +167,28 @@ long LinuxParser::ActiveJiffies(int pid) {
   }
 
 // TODO: Read and return the number of active jiffies for the system
-long LinuxParser::ActiveJiffies() { return 0; }
+long LinuxParser::ActiveJiffies() {
+  
+    string line = " ";
+    string cpu = " ";
+
+    string sUser = " ",sNice = " ", sSystem = " ", sIdle = " ", sIOwait = " ",
+           sIRQ = " ", sSoftIRQ = " ", sSteal = " ", sGuest = " ", sGuestNice = " ";
+
+    std::ifstream filestream(kProcDirectory + kStatFilename);
+
+    if (filestream.is_open()) {
+
+    std::getline(filestream, line);
+    std::istringstream linestream(line);
+
+    linestream >> cpu >> sUser >> sNice >> sSystem >> sIdle >> sIOwait >> sIRQ
+               >> sSoftIRQ >> sSteal >> sGuest >> sGuestNice;   
+    }   
+    
+    return (std::stol(sUser) + std::stol(sNice) + std::stol(sSystem) + std::stol(sIRQ) 
+           + std::stol(sSoftIRQ) + std::stol(sSteal) + std::stol(sGuest) + std::stol(sGuestNice)); 
+}
 
 // TODO: Read and return the number of idle jiffies for the system
 long LinuxParser::IdleJiffies() { return 0; }
