@@ -16,11 +16,11 @@ Process::Process(int pid) {
 }
 
 bool Process::operator>(const Process& a) const {
-    return (CpuUtilization() > a.CpuUtilization()) ? true :false;
+    return (CpuUtilization() < a.CpuUtilization()) ? true :false;
 }
 
-bool Process::operator>(const Process& a) const {
-    return (CpuUtilization() < a.CpuUtilization()) ? true :false;
+bool Process::operator<(const Process& a) const {
+    return (CpuUtilization() > a.CpuUtilization()) ? true :false;
 }
 
 // TODO: Return this process's ID
