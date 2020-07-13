@@ -17,4 +17,4 @@ float Processor::Utilization() {
     
     float cpu_utilization = ((( tAll_ - tAllOLd) - (tIdle_ - tIdleOld)) / (tAll_ - tAllOLd));
     return (cpu_utilization > 0.0) ? cpu_utilization : 0.0; 
-}
+}       
