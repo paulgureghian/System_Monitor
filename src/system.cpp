@@ -55,34 +55,37 @@ vector<Process>& System::Processes() {
     return processes_; 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Return the system's kernel identifier (string)
-std::string System::Kernel() { return string(); }
+std::string System::Kernel() { 
+    
+    return LinuxParser::Kernel(); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Return the system's memory utilization
 float System::MemoryUtilization() { return 0.0; }
