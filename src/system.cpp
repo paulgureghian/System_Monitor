@@ -13,6 +13,19 @@ using std::size_t;
 using std::string;
 using std::vector;
 
+System::System() {
+
+    cpu_ = Processor();
+    Processes(); 
+}
+
+
+
+
+
+
+
+
 // Return the system's CPU
 Processor& System::Cpu() { return cpu_; }
 
@@ -36,3 +49,10 @@ int System::TotalProcesses() { return 0; }
 
 // Return the number of seconds since the system started running
 long int System::UpTime() { return 0; }
+
+
+
+
+
+
+
