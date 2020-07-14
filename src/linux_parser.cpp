@@ -12,7 +12,7 @@ using std::to_string;
 using std::vector;
 using namespace std::experimental::filesystem::v1;
 
-// DONE: An example of how to read data from the filesystem
+// An example of how to read data from the filesystem
 string LinuxParser::OperatingSystem() {
   string line;
   string key;
@@ -35,7 +35,7 @@ string LinuxParser::OperatingSystem() {
   return value;
 }
 
-// DONE: An example of how to read data from the filesystem
+// An example of how to read data from the filesystem
 string LinuxParser::Kernel() {
   string os, version, kernel;
   string line;
@@ -48,7 +48,7 @@ string LinuxParser::Kernel() {
   return kernel;
 }
 
-// BONUS: Update this to use std::filesystem
+// Update this to use std::filesystem
 vector<int> LinuxParser::Pids() {
   vector<int> pids;
   DIR* directory = opendir(kProcDirectory.c_str());
@@ -68,7 +68,7 @@ vector<int> LinuxParser::Pids() {
   return pids;
 }
 
-// TODO: Read and return the system memory utilization
+// Read and return the system memory utilization
 float LinuxParser::MemoryUtilization() { 
   
     string line;
@@ -100,7 +100,7 @@ float LinuxParser::MemoryUtilization() {
   return ((std::stof(value_tmem) - std::stof(value_fmem)) / std::stof(value_tmem)); 
 }
 
-// TODO: Read and return the system uptime
+// Read and return the system uptime
 long LinuxParser::UpTime() { 
   
     string line;
@@ -118,7 +118,7 @@ long LinuxParser::UpTime() {
     return (std::stol(value)); 
 }
 
-// TODO: Read and return the number of jiffies for the system
+// Read and return the number of jiffies for the system
 long LinuxParser::Jiffies() { 
   
     string line = " ";
@@ -143,8 +143,7 @@ long LinuxParser::Jiffies() {
             + std::stol(sGuest) + std::stol(sGuestNice)); 
 }
 
-// TODO: Read and return the number of active jiffies for a PID
-// REMOVE: [[maybe_unused]] once you define the function
+// Read and return the number of active jiffies for a PID
 long LinuxParser::ActiveJiffies(int pid) { 
   
     string line = " ", shlp = " ";
@@ -167,7 +166,7 @@ long LinuxParser::ActiveJiffies(int pid) {
       return (std::stol(sUtime) + std::stol(sStime) + std::stol(sCUtime) + std::stol(sCStime)); 
   }
 
-// TODO: Read and return the number of active jiffies for the system
+// Read and return the number of active jiffies for the system
 long LinuxParser::ActiveJiffies() {
   
     string line = " ";
@@ -191,7 +190,7 @@ long LinuxParser::ActiveJiffies() {
            + std::stol(sSoftIRQ) + std::stol(sSteal) + std::stol(sGuest) + std::stol(sGuestNice)); 
 }
 
-// TODO: Read and return the number of idle jiffies for the system
+// Read and return the number of idle jiffies for the system
 long LinuxParser::IdleJiffies() { 
   
     string line = " ";
@@ -214,7 +213,7 @@ long LinuxParser::IdleJiffies() {
   return (std::stol(sIdle) + std::stol(sIOwait)); 
 }
 
-// TODO: Read and return CPU utilization
+// Read and return CPU utilization
 vector<string> LinuxParser::CpuUtilization() { 
   
     long lOldActiveJiffies = ActiveJiffies();
@@ -235,7 +234,7 @@ vector<string> LinuxParser::CpuUtilization() {
     return vResult ; 
   }
 
-// TODO: Read and return the total number of processes
+// Read and return the total number of processes
 int LinuxParser::TotalProcesses() { 
   
     string line = " ";
@@ -258,7 +257,7 @@ int LinuxParser::TotalProcesses() {
     return 0; 
 }
 
-// TODO: Read and return the number of running processes
+// Read and return the number of running processes
 int LinuxParser::RunningProcesses() { 
   
    string line = " ";
@@ -282,7 +281,7 @@ int LinuxParser::RunningProcesses() {
   return 0; 
 }
 
-// TODO: Read and return the command associated with a process
+// Read and return the command associated with a process
 string LinuxParser::Command(int pid) {
 
     string line = " ";
@@ -298,7 +297,7 @@ string LinuxParser::Command(int pid) {
   return " "; 
 }
 
-// TODO: Read and return the memory used by a process
+// Read and return the memory used by a process
 string LinuxParser::Ram(int pid) { 
   
     string line = " ";
@@ -323,7 +322,7 @@ string LinuxParser::Ram(int pid) {
   return " "; 
 }
 
-// TODO: Read and return the user ID associated with a process
+// Read and return the user ID associated with a process
 string LinuxParser::Uid(int pid[[maybe_unused]]) { 
   
     string line = " ";
@@ -346,7 +345,7 @@ string LinuxParser::Uid(int pid[[maybe_unused]]) {
   return " "; 
 }
 
-// TODO: Read and return the user associated with a process
+// Read and return the user associated with a process
 string LinuxParser::User(int pid) { 
   
     string line = " ";
@@ -366,7 +365,7 @@ string LinuxParser::User(int pid) {
     return "root"; 
 }
 
-// TODO: Read and return the uptime of a process
+// Read and return the uptime of a process
 long LinuxParser::UpTime(int pid) { 
   
     string line, hlp;

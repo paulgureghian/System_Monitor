@@ -2,6 +2,7 @@
 #define PROCESS_H
 
 #include <string>
+
 /*
 Basic class for Process representation
 It contains relevant attributes as shown below
@@ -19,7 +20,7 @@ class Process {
   bool operator>(Process const& a) const;
   Process(int pid);
 
-  // TODO: Declare any necessary private members
+  // Declare private members
  private:
     int pid_;
     float cpu_ = 0;

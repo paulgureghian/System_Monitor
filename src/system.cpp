@@ -19,19 +19,11 @@ System::System() {
     Processes(); 
 }
 
-
-
-
-
-
-
-
 // Return the system's CPU
 Processor& System::Cpu() { 
     
     return cpu_; 
 }
-
 
 // Return a container composed of the system's processes
 vector<Process>& System::Processes() { 
@@ -90,10 +82,3 @@ long int System::UpTime() {
     
     return LinuxParser::UpTime(); 
 }
-
-
-
-
-
-
-

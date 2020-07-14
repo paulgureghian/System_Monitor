@@ -26,5 +26,3 @@ std::string Format::ElapsedTime(long seconds) {
 
     return ssresult.str();
 }
-
-
